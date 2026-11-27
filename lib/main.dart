@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'menu_list.dart';
 
 void main() {
   runApp(const MandarinApp());
 }
-
+/// Configures the shared Mandarin theme and opens the home screen.
 class MandarinApp extends StatelessWidget {
   const MandarinApp({super.key});
 
@@ -28,7 +29,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
+    // Extend the gradient across the screen while keeping content in the safe area.
     return Scaffold(
       body: DecoratedBox(
         decoration: const BoxDecoration(
@@ -68,6 +69,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
+                    const SizedBox(height: 24),
+                    Text('Menu', style: theme.textTheme.titleLarge),
+                    const SizedBox(height: 8),
+                    // Use the remaining space so the menu can scroll on smaller screens.
+                    const Flexible(child: MenuList()),
                   ],
                 ),
               ),
